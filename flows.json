@@ -1,0 +1,409 @@
+[
+    {
+        "id": "d1ea13bb24642f67",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6c6685e1adb2bef8",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "da5c67868cb1cb4f",
+        "type": "io7-hub",
+        "name": "app1",
+        "host": "mqtt",
+        "useTLS": false,
+        "knownPort": true,
+        "port": "1883",
+        "tls": "",
+        "clientid": ""
+    },
+    {
+        "id": "0b60911df39b0f01",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "a5083716a7173f75",
+        "type": "global-config",
+        "env": [],
+        "modules": {}
+    },
+    {
+        "id": "e04cdb085148a152",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "ea176c6d6123655d",
+        "type": "ui-page",
+        "name": "Page 1",
+        "ui": "e04cdb085148a152",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "0b60911df39b0f01",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "tabs": [],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "d7383ea4332dbe4a",
+        "type": "ui-group",
+        "name": "Group 1",
+        "page": "ea176c6d6123655d",
+        "width": 4,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default",
+        "keepLoaded": false,
+        "tab": ""
+    },
+    {
+        "id": "c0db567d82899b22",
+        "type": "io7 in",
+        "z": "d1ea13bb24642f67",
+        "name": "dimmer1",
+        "deviceId": "dimmer1",
+        "authentication": "da5c67868cb1cb4f",
+        "evt": "status",
+        "fmt": "json",
+        "qos": "0",
+        "allDevices": false,
+        "allEvents": false,
+        "allFormats": false,
+        "x": 260,
+        "y": 160,
+        "wires": [
+            [
+                "fd2fbaaae3765d33",
+                "b1eb2bab3aca2bd6"
+            ]
+        ]
+    },
+    {
+        "id": "3948684149d5f3f2",
+        "type": "io7 in",
+        "z": "d1ea13bb24642f67",
+        "name": "neo1",
+        "deviceId": "neo1",
+        "authentication": "da5c67868cb1cb4f",
+        "evt": "status",
+        "fmt": "json",
+        "qos": "0",
+        "allDevices": false,
+        "allEvents": false,
+        "allFormats": false,
+        "x": 250,
+        "y": 380,
+        "wires": [
+            [
+                "3b61a29b166ad15f",
+                "508e060a81ee7ddd"
+            ]
+        ]
+    },
+    {
+        "id": "64f5029ccd171299",
+        "type": "io7 out",
+        "z": "d1ea13bb24642f67",
+        "authentication": "da5c67868cb1cb4f",
+        "name": "dimmer1",
+        "deviceId": "dimmer1",
+        "cmd": "value",
+        "fmt": "json",
+        "qos": "0",
+        "retain": "false",
+        "x": 960,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "46cf7f1508121f28",
+        "type": "io7 out",
+        "z": "d1ea13bb24642f67",
+        "authentication": "da5c67868cb1cb4f",
+        "name": "neo1",
+        "deviceId": "neo1",
+        "cmd": "color",
+        "fmt": "json",
+        "qos": "0",
+        "retain": "false",
+        "x": 910,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "fd2fbaaae3765d33",
+        "type": "function",
+        "z": "d1ea13bb24642f67",
+        "name": "slider",
+        "func": "msg.payload = msg.payload.d.value;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 160,
+        "wires": [
+            [
+                "f926cf0d4671677f"
+            ]
+        ]
+    },
+    {
+        "id": "e6d9d24098349423",
+        "type": "function",
+        "z": "d1ea13bb24642f67",
+        "name": "command",
+        "func": "msg. payload = {\n\"d\" : {\n    \"value\" : msg. payload\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 160,
+        "wires": [
+            [
+                "64f5029ccd171299"
+            ]
+        ]
+    },
+    {
+        "id": "b1eb2bab3aca2bd6",
+        "type": "function",
+        "z": "d1ea13bb24642f67",
+        "name": "rotary",
+        "func": "let level = 0;\nif (msg.payload.d. switch === 'clicked') {\n    if (flow.get('level') === 0) {\n        level = flow. get( 'level_save');\n    }\n} else {\n    level = msg.payload.d.value;\n}\nmsg. payload = {\n    \"d\": { \"color\": {\"r\": level, \"g\": level, \"b\": level }\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 240,
+        "wires": [
+            [
+                "46cf7f1508121f28"
+            ]
+        ]
+    },
+    {
+        "id": "821a4b43508449b1",
+        "type": "function",
+        "z": "d1ea13bb24642f67",
+        "name": "on/off",
+        "func": "if (msg.payload === 'on') {\n    msg.payload = {\"d\": {\"value\" : flow.get('level_save')}};\n} else {\n    flow. set('level_save', flow. get('level'));\n    msg.payload = {\"d\": {\"value\" : 0}};\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 240,
+        "wires": [
+            [
+                "64f5029ccd171299"
+            ]
+        ]
+    },
+    {
+        "id": "3b61a29b166ad15f",
+        "type": "function",
+        "z": "d1ea13bb24642f67",
+        "name": "on/off?",
+        "func": "let off_state = { \"r\": 0, \"g\": 0, \"b\": 0 };\nfunction isEqual(a, b) {\n    for(let c in a) {\n        if (a[c] != b[c]) {\n            return false;\n        }\n    }\n    return true;\n}\n\nmsg.payload = isEqual(msg.payload.d.color, off_state) ? 'off' : 'on';\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 380,
+        "wires": [
+            [
+                "c7b1a1df5abc6985"
+            ]
+        ]
+    },
+    {
+        "id": "4d83bb267af7973e",
+        "type": "function",
+        "z": "d1ea13bb24642f67",
+        "name": "on/off",
+        "func": "let color = {\"r\": 0, \"g\": 0, \"b\": 0};\nlet saved = flow. get('level_save');\nmsg. level = saved;\nif (msg.payload === 'on') {\n    color = {\"r\": saved, \"g\": saved, \"b\": saved}\n} else {\n    flow. set('level_save', flow. get( 'level'));\n}\nmsg. payload = {\"d\": {\"color\" : color}};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 380,
+        "wires": [
+            [
+                "46cf7f1508121f28"
+            ]
+        ]
+    },
+    {
+        "id": "508e060a81ee7ddd",
+        "type": "function",
+        "z": "d1ea13bb24642f67",
+        "name": "global",
+        "func": "flow.set('level', msg.payload.d.color.r);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c7b1a1df5abc6985",
+        "type": "ui-switch",
+        "z": "d1ea13bb24642f67",
+        "name": "",
+        "label": "switch",
+        "group": "d7383ea4332dbe4a",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 570,
+        "y": 380,
+        "wires": [
+            [
+                "4d83bb267af7973e",
+                "821a4b43508449b1"
+            ]
+        ]
+    },
+    {
+        "id": "f926cf0d4671677f",
+        "type": "ui-slider",
+        "z": "d1ea13bb24642f67",
+        "group": "d7383ea4332dbe4a",
+        "name": "",
+        "label": "slider",
+        "tooltip": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "thumbLabel": "true",
+        "showTicks": "always",
+        "min": 0,
+        "max": "255",
+        "step": 1,
+        "className": "",
+        "iconPrepend": "",
+        "iconAppend": "",
+        "color": "",
+        "colorTrack": "",
+        "colorThumb": "",
+        "showTextField": false,
+        "x": 570,
+        "y": 160,
+        "wires": [
+            [
+                "e6d9d24098349423"
+            ]
+        ]
+    }
+]
