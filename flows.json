@@ -8,14 +8,6 @@
         "env": []
     },
     {
-        "id": "6c6685e1adb2bef8",
-        "type": "tab",
-        "label": "플로우 1",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
         "id": "da5c67868cb1cb4f",
         "type": "io7-hub",
         "name": "app1",
