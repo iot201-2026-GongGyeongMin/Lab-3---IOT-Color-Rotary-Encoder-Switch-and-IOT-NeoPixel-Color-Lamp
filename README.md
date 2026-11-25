@@ -4,7 +4,11 @@
 
 <img width="1778" height="238" alt="lab3" src="https://github.com/user-attachments/assets/385a2b9e-fe96-4a25-9bda-25fb9ae31152" />
 
-https://github.com/user-attachments/assets/4db77d95-c36f-4dac-977a-2ffa4c41c877
+
+
+https://github.com/user-attachments/assets/bbeac917-cb09-47ee-8beb-1390db35a99f
+
+
 
 IOT_Rotary_Neopixel
 ===================
